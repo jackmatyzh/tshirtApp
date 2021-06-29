@@ -2,6 +2,7 @@ $(document).ready(function() {
     var phrasesArrey = new Array;
 
     console.log(phrasesArrey.length);
+    //main input functionality
     $("#add").click(function(e) {
 
         var add = $('#phraseInput').val();
@@ -16,7 +17,7 @@ $(document).ready(function() {
         $('#phraseInput').val('');
     });
 
-
+    //check for max 2 phrases
     function checkLenght() {
         var leen = phrasesArrey.length;
         if (leen == 2) {
@@ -39,6 +40,7 @@ $(document).ready(function() {
 
     }
 
+    //toggle classes on butttons
     $(document).on('click', '.close', function() {
         $(this).closest('div').remove();
         var index = phrasesArrey.indexOf($(this).closest('div').find('p').text());
@@ -66,7 +68,7 @@ $(document).ready(function() {
         }
 
     });
-
+    //on click #generate move to 2nd step
     $(document).on('click', '#generate', function() {
         $("#container-1").fadeOut(1000, function() {
             $("#container-1").addClass("none");
@@ -77,7 +79,7 @@ $(document).ready(function() {
         $("#container-1").addClass("none");
 
         var leen = phrasesArrey.length;
-        // var fraza = [1, 2];
+
         $('.name-acc1').text(phrasesArrey[0]);
         $('.name-acc2').text(phrasesArrey[1]);
 
@@ -91,7 +93,7 @@ $(document).ready(function() {
         }
 
     });
-
+    //enter will funtion as button AddIt without reloading the page
     $("#phraseInput").keydown(function(event) {
         if (event.keyCode === 13) {
             event.preventDefault();
@@ -101,7 +103,7 @@ $(document).ready(function() {
 
 
 
-
+    //accardion functionality
     var acc = document.getElementsByClassName("accordion");
     var i;
 
@@ -121,7 +123,7 @@ $(document).ready(function() {
         });
     }
 
-
+    //color selector and color randomizer
     var color1
     var colorRange = document.querySelector('.color-range')
     var randomRange = Math.floor(100 * Math.random())
@@ -136,8 +138,7 @@ $(document).ready(function() {
         colorChoice.style.color = hsl
         ddrag1.style.color = hsl
         color1 = hsl
-            // colorChoice.innerHTML = hsl
-            // document.body.style.background = bgHsl
+
     });
     colorRange.value = randomRange;
     var event = new Event('input');
@@ -158,8 +159,7 @@ $(document).ready(function() {
         ddrag2.style.color = hsl2
         color2 = hsl2
 
-        // colorChoice2.innerHTML = hsl2
-        // document.body.style.background = bgHsl
+
     });
     colorRange2.value = randomRange2;
     ddrag2.value = randomRange2
@@ -168,7 +168,7 @@ $(document).ready(function() {
 
 
 
-
+    //interactjs
 
     // target elements with the "draggable" class
     interact('.draggable')
@@ -201,7 +201,7 @@ $(document).ready(function() {
                 }
             }
         })
-
+        //moving the phrases
     function dragMoveListener(event) {
         var target = event.target
             // keep the dragged position in the data-x/data-y attributes
@@ -225,42 +225,40 @@ $(document).ready(function() {
 
     // enable draggables to be dropped into this
     interact('.dropzone').dropzone({
-        // only accept elements matching this CSS selector
-        accept: '#yes-drop',
-        // Require a 75% element overlap for a drop to be possible
-        overlap: 0.75,
+            // only accept elements matching this CSS selector
+            accept: '#yes-drop',
+            // Require a 75% element overlap for a drop to be possible
+            overlap: 0.75,
 
-        // listen for drop related events:
+            // listen for drop related events:
 
-        ondropactivate: function(event) {
-            // add active dropzone feedback
-            event.target.classList.add('drop-active')
-        },
-        ondragenter: function(event) {
-            var draggableElement = event.relatedTarget
-            var dropzoneElement = event.target
+            ondropactivate: function(event) {
+                // add active dropzone feedback
+                event.target.classList.add('drop-active')
+            },
+            ondragenter: function(event) {
+                var draggableElement = event.relatedTarget
+                var dropzoneElement = event.target
 
-            // feedback the possibility of a drop
-            dropzoneElement.classList.add('drop-target')
-            draggableElement.classList.add('can-drop')
-                // draggableElement.textContent = 'Dragged in'
-        },
-        ondragleave: function(event) {
-            // remove the drop feedback style
-            event.target.classList.remove('drop-target')
-            event.relatedTarget.classList.remove('can-drop')
-                // event.relatedTarget.textContent = 'Dragged out'
-        },
-        ondrop: function(event) {
-            // event.relatedTarget.textContent = 'Dropped'
-        },
-        ondropdeactivate: function(event) {
-            // remove active dropzone feedback
-            event.target.classList.remove('drop-active')
-            event.target.classList.remove('drop-target')
-        }
-    })
+                // feedback the possibility of a drop
+                dropzoneElement.classList.add('drop-target')
+                draggableElement.classList.add('can-drop')
 
+            },
+            ondragleave: function(event) {
+                // remove the drop feedback style
+                event.target.classList.remove('drop-target')
+                event.relatedTarget.classList.remove('can-drop')
+
+            },
+
+            ondropdeactivate: function(event) {
+                // remove active dropzone feedback
+                event.target.classList.remove('drop-active')
+                event.target.classList.remove('drop-target')
+            }
+        })
+        //drag and drop
     interact('.drag-drop')
         .draggable({
             inertia: true,
@@ -271,11 +269,11 @@ $(document).ready(function() {
                 })
             ],
             autoScroll: true,
-            // dragMoveListener from the dragging demo above
+
             listeners: { move: dragMoveListener }
         })
 
-
+    //on tap on phrase funtionality
     interact('.drag-drop')
         .on('tap', function(event) {
 
@@ -317,14 +315,7 @@ $(document).ready(function() {
 
         })
 
-    interact('.drag-drop')
-        .on('tap', function(event) {
-
-            event.currentTarget.classList.toggle('hover-drag')
-            event.preventDefault()
-
-        })
-
+    //ajax POST funtionality
     $(document).on('click', '#ajaxbtn', function() {
 
 
