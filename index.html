@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="scripts/script.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="big-main" id="container-1">
+        <div id="head-part">
+            <div id="logotype" class="logo">
+                <img src="images/logo.png" alt="logo" />
+            </div>
+            <div id="steps-menu" class="steps">
+                <ul>
+                    <li class="currStep">Step 1</li>
+                    <li>Step 2</li>
+                    <li>Step 3</li>
+                </ul>
+            </div>
+        </div>
+        <div id="type-section">
+            <form id="fform" action="">
+                <div class="left-type">
+                    <input type="text" id="phraseInput" placeholder="Type something..." />
+                </div>
+                <div class="right-type">
+                    <button type="button" id="add" class="pushable">
+              <span class="shadow"></span>
+              <span class="edge"></span>
+              <span class="front front-hover"> Add it! </span>
+            </button>
+                </div>
+            </form>
+        </div>
+        <div id="phrases-added">
+            <div class="left-type">
+
+                <p class="list"></p>
+            </div>
+            <div class="right-type">
+                <button id="generate" class="pushable">
+            <span class="shadow none"></span>
+            <span class="edge none"></span>
+            <span class="front none"> Generate </span>
+          </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="big-main none" id="container-2">
+        <div id="head-part">
+            <div id="logotype" class="logo">
+                <img src="images/logo.png" alt="logo" />
+            </div>
+            <div id="steps-menu" class="steps">
+                <ul>
+                    <li>Step 1</li>
+                    <li class="currStep">Step 2</li>
+                    <li>Step 3</li>
+                </ul>
+            </div>
+        </div>
+        <div id="constructor">
+            <div id="left-construct">
+
+
+
+                <div id="inner-dropzone" class="dropzone">
+                    <div id="yes-drop" class="drag-drop drag1">
+                        <p class="">#1</p>
+                    </div>
+
+                    <div id="yes-drop" class="drag-drop drag2 none">
+                        <p class="">#2</p>
+                    </div>
+
+                </div>
+
+                <img src="/images/tshirt.png" alt="tshirt" />
+            </div>
+            <div id="right-construct">
+                <div class="accordion acc1">
+                    <div class="img-acc"></div>
+                    <p class="name-acc1"></p>
+                    <div class="img-arr"></div>
+                    <div class="img-del"></div>
+
+                </div>
+                <div class="panel">
+                    <p id="color-choice">Colour</p>
+
+                    <input class="color-range" type="range" min="0" max="100" value="75" title="Drag me, baby.">
+                </div>
+
+                <div class="accordion acc2 none">
+                    <div class="img-acc"></div>
+                    <p class="name-acc2"></p>
+                    <div class="img-arr"></div>
+                    <div class="img-del"></div>
+
+                </div>
+                <div class="panel">
+                    <p id="color-choice2">Colour</p>
+
+                    <input class="color-range2" type="range" min="0" max="100" value="75" title="Drag me, baby.">
+                </div>
+
+                <button id="ajaxbtn" class="pushable">
+            <span class="shadow"></span>
+            <span class="edge"></span>
+            <span class="front front-hover"> Send Ajax Request with Data </span>
+          </button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
