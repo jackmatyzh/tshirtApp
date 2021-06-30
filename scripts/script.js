@@ -383,8 +383,8 @@ $(document).ready(function() {
 
             },
             success: function(data) {
-                alert(this.data, true);
-                console.log(this.data, true);
+                // alert(this.data, true);
+                // console.log(this.data, true);
                 $('#ajaxbtn').addClass('disabled')
                 $("#ajaxbtn").find('.edge').addClass("none");
                 $("#ajaxbtn").find('.shadow').addClass("none");
